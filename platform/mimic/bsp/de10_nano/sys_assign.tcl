@@ -10,7 +10,7 @@
 # Hardware Information
 # ==============================================================================
 set_global_assignment -name FAMILY "Cyclone V"
-set_global_assignment -name DEVICE 5CSEBA6U23I7
+set_global_assignment -name DEVICE 5CSEMA6U23A7
 set_global_assignment -name DEVICE_FILTER_PACKAGE UFBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 672
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
@@ -33,7 +33,7 @@ set_global_assignment -name SOURCE_TCL_SCRIPT_FILE "../platform/mimic/bsp/setup.
 # Classic Timing Assignments
 # ==============================================================================
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
-set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 125
 
 # ==============================================================================
 # Assembler Assignments

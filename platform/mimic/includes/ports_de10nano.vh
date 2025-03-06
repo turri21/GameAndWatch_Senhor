@@ -23,69 +23,69 @@
         //! SDRAM
         output wire [12:0] SDRAM_A,
         inout  wire [15:0] SDRAM_DQ,
-        output wire        SDRAM_DQML,
-        output wire        SDRAM_DQMH,
+        //output wire        SDRAM_DQML,
+        //output wire        SDRAM_DQMH,
         output wire        SDRAM_nWE,
         output wire        SDRAM_nCAS,
         output wire        SDRAM_nRAS,
         output wire        SDRAM_nCS,
         output wire  [1:0] SDRAM_BA,
         output wire        SDRAM_CLK,
-        output wire        SDRAM_CKE,
+        //output wire        SDRAM_CKE,
 
     `ifdef NSX_ENABLE_2ND_SDRAM
         //! SDRAM #2
-        output wire [12:0] SDRAM2_A,
-        inout  wire [15:0] SDRAM2_DQ,
-        output wire        SDRAM2_nWE,
-        output wire        SDRAM2_nCAS,
-        output wire        SDRAM2_nRAS,
-        output wire        SDRAM2_nCS,
-        output wire  [1:0] SDRAM2_BA,
-        output wire        SDRAM2_CLK,
+        //output wire [12:0] SDRAM2_A,
+        //inout  wire [15:0] SDRAM2_DQ,
+        //output wire        SDRAM2_nWE,
+        //output wire        SDRAM2_nCAS,
+        //output wire        SDRAM2_nRAS,
+        //output wire        SDRAM2_nCS,
+        //output wire  [1:0] SDRAM2_BA,
+        //output wire        SDRAM2_CLK,
     `else
         //! VGA
-        output wire  [5:0] VGA_R,
-        output wire  [5:0] VGA_G,
-        output wire  [5:0] VGA_B,
-        inout  wire        VGA_HS,  // VGA_HS is secondary SD card detect when VGA_EN = 1 (inactive)
-        output wire        VGA_VS,
-        input  wire        VGA_EN,  // active low
+        //output wire  [5:0] VGA_R,
+        //output wire  [5:0] VGA_G,
+        //output wire  [5:0] VGA_B,
+        //inout  wire        VGA_HS,  // VGA_HS is secondary SD card detect when VGA_EN = 1 (inactive)
+        //output wire        VGA_VS,
+        //input  wire        VGA_EN,  // active low
 
         //! AUDIO
-        output wire        AUDIO_L,
-        output wire        AUDIO_R,
-        output wire        AUDIO_SPDIF,
+        //output wire        AUDIO_L,
+        //output wire        AUDIO_R,
+        //output wire        AUDIO_SPDIF,
 
         //! SDIO
-        inout  wire  [3:0] SDIO_DAT,
-        inout  wire        SDIO_CMD,
-        output wire        SDIO_CLK,
+        //inout  wire  [3:0] SDIO_DAT,
+        //inout  wire        SDIO_CMD,
+        //output wire        SDIO_CLK,
 
         //! I/O
-        output wire        LED_USER,
-        output wire        LED_HDD,
-        output wire        LED_POWER,
-        input  wire        BTN_USER,
-        input  wire        BTN_OSD,
-        input  wire        BTN_RESET,
+        //output wire        LED_USER,
+        //output wire        LED_HDD,
+        //output wire        LED_POWER,
+        //input  wire        BTN_USER,
+        //input  wire        BTN_OSD,
+        //input  wire        BTN_RESET,
     `endif
 
         //! I/O ALT
-        output wire        SD_SPI_CS,
-        input  wire        SD_SPI_MISO,
-        output wire        SD_SPI_CLK,
-        output wire        SD_SPI_MOSI,
+        //output wire        SD_SPI_CS,
+        //input  wire        SD_SPI_MISO,
+        //output wire        SD_SPI_CLK,
+        //output wire        SD_SPI_MOSI,
 
-        inout  wire        SDCD_SPDIF,
-        output wire        IO_SCL,
-        inout  wire        IO_SDA,
+        //inout  wire        SDCD_SPDIF,
+        //output wire        IO_SCL,
+        //inout  wire        IO_SDA,
 
         //! ADC
-        output wire        ADC_SCK,
-        input  wire        ADC_SDO,
-        output wire        ADC_SDI,
-        output wire        ADC_CONVST,
+        //output wire        ADC_SCK,
+        //input  wire        ADC_SDO,
+        //output wire        ADC_SDI,
+        //output wire        ADC_CONVST,
 
         //! MB KEY
         input  wire  [1:0] KEY,
@@ -94,7 +94,7 @@
         input  wire  [3:0] SW,
 
         //! MB LED
-        output wire  [7:0] LED,
+        output wire  [7:0] LED
 
         //! USER IO
-        inout  wire  [6:0] USER_IO
+        //inout  wire  [6:0] USER_IO

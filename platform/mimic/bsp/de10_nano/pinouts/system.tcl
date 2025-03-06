@@ -104,12 +104,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_VS
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_DE
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_INT
 
-set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to HDMI_TX_D[*]
-set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to HDMI_TX_CLK
-set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to HDMI_TX_HS
-set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to HDMI_TX_VS
-set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to HDMI_TX_DE
-
 # ==============================================================================
 # KEY
 # ==============================================================================
@@ -156,12 +150,12 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3]
 # ==============================================================================
 # ADC
 # ==============================================================================
-set_location_assignment PIN_U9  -to ADC_CONVST
-set_location_assignment PIN_V10 -to ADC_SCK
-set_location_assignment PIN_AC4 -to ADC_SDI
-set_location_assignment PIN_AD4 -to ADC_SDO
+#set_location_assignment PIN_U9  -to ADC_CONVST
+#set_location_assignment PIN_V10 -to ADC_SCK
+#set_location_assignment PIN_AC4 -to ADC_SDI
+#set_location_assignment PIN_AD4 -to ADC_SDO
 
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_CONVST
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SCK
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SDI
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SDO
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_CONVST
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SCK
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SDI
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SDO

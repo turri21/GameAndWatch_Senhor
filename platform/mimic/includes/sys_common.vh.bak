@@ -35,15 +35,15 @@ wire BTN_RESET = 1'b1, BTN_OSD = 1'b1, BTN_USER = 1'b1;
 `ifndef NSX_ENABLE_2ND_SDRAM
     assign SDIO_DAT[2:1]= 2'bZZ;
     assign SDIO_DAT[3]  = SW[3] ? 1'bZ  : SD_CS;
-//    assign SDIO_CLK     = SW[3] ? 1'bZ  : SD_CLK;
+    assign SDIO_CLK     = SW[3] ? 1'bZ  : SD_CLK;
     assign SDIO_CMD     = SW[3] ? 1'bZ  : SD_MOSI;
-//    assign SD_SPI_CS    = mcp_sdcd ? ((~VGA_EN & sog & ~cs1) ? 1'b1 : 1'bZ) : SD_CS;
+    assign SD_SPI_CS    = mcp_sdcd ? ((~VGA_EN & sog & ~cs1) ? 1'b1 : 1'bZ) : SD_CS;
 `else
     assign SD_SPI_CS    = mcp_sdcd ? 1'bZ : SD_CS;
 `endif
 
-//    assign SD_SPI_CLK  = mcp_sdcd ? 1'bZ : SD_CLK;
-//    assign SD_SPI_MOSI = mcp_sdcd ? 1'bZ : SD_MOSI;
+    assign SD_SPI_CLK  = mcp_sdcd ? 1'bZ : SD_CLK;
+    assign SD_SPI_MOSI = mcp_sdcd ? 1'bZ : SD_MOSI;
 
     //! LEDs/Buttons
     reg [7:0] led_overtake = 0;
@@ -55,9 +55,9 @@ wire BTN_RESET = 1'b1, BTN_OSD = 1'b1, BTN_USER = 1'b1;
     wire led_locked;
 
 `ifndef NSX_ENABLE_2ND_SDRAM
-//    assign LED_POWER = (SW[3] | led_p) ? 1'bZ : 1'b0;
-//    assign LED_HDD   = (SW[3] | led_d) ? 1'bZ : 1'b0;
-//    assign LED_USER  = (SW[3] | led_u) ? 1'bZ : 1'b0;
+    assign LED_POWER = (SW[3] | led_p) ? 1'bZ : 1'b0;
+    assign LED_HDD   = (SW[3] | led_d) ? 1'bZ : 1'b0;
+    assign LED_USER  = (SW[3] | led_u) ? 1'bZ : 1'b0;
 `endif
 
     //! LEDs on main board
@@ -78,10 +78,10 @@ wire BTN_RESET = 1'b1, BTN_OSD = 1'b1, BTN_USER = 1'b1;
 
         .btn(mcp_btn),
         .led({led_p, led_d, led_u}),
-        .sd_cd(mcp_sdcd)
+        .sd_cd(mcp_sdcd),
 
-//        .scl(IO_SCL),
-//        .sda(IO_SDA)
+        .scl(IO_SCL),
+        .sda(IO_SDA)
     );
 
 
@@ -1325,14 +1325,14 @@ wire BTN_RESET = 1'b1, BTN_OSD = 1'b1, BTN_USER = 1'b1;
 
     //! Audio output
 
-//    assign SDCD_SPDIF =(SW[3] & ~spdif) ? 1'b0 : 1'bZ;
+    assign SDCD_SPDIF =(SW[3] & ~spdif) ? 1'b0 : 1'bZ;
 
 `ifndef NSX_ENABLE_2ND_SDRAM
     wire analog_l, analog_r;
 
-//    assign AUDIO_SPDIF = SW[3] ? 1'bZ : SW[0] ? HDMI_LRCLK : spdif;
-//    assign AUDIO_R     = SW[3] ? 1'bZ : SW[0] ? HDMI_I2S   : analog_r;
-//    assign AUDIO_L     = SW[3] ? 1'bZ : SW[0] ? HDMI_SCLK  : analog_l;
+    assign AUDIO_SPDIF = SW[3] ? 1'bZ : SW[0] ? HDMI_LRCLK : spdif;
+    assign AUDIO_R     = SW[3] ? 1'bZ : SW[0] ? HDMI_I2S   : analog_r;
+    assign AUDIO_L     = SW[3] ? 1'bZ : SW[0] ? HDMI_SCLK  : analog_l;
 `endif
 
     assign HDMI_MCLK = clk_audio;
@@ -1588,7 +1588,7 @@ wire BTN_RESET = 1'b1, BTN_OSD = 1'b1, BTN_USER = 1'b1;
         .AUDIO_S(audio_s),
         .AUDIO_MIX(audio_mix),
 
-//        .ADC_BUS({ADC_SCK,ADC_SDO,ADC_SDI,ADC_CONVST}),
+        .ADC_BUS({ADC_SCK,ADC_SDO,ADC_SDI,ADC_CONVST}),
 
         .DDRAM_CLK(ram_clk),
         .DDRAM_ADDR(ram_address),
@@ -1603,15 +1603,15 @@ wire BTN_RESET = 1'b1, BTN_OSD = 1'b1, BTN_USER = 1'b1;
 
         .SDRAM_DQ(SDRAM_DQ),
         .SDRAM_A(SDRAM_A),
-//        .SDRAM_DQML(SDRAM_DQML),
-//        .SDRAM_DQMH(SDRAM_DQMH),
+        .SDRAM_DQML(SDRAM_DQML),
+        .SDRAM_DQMH(SDRAM_DQMH),
         .SDRAM_BA(SDRAM_BA),
         .SDRAM_nCS(SDRAM_nCS),
         .SDRAM_nWE(SDRAM_nWE),
         .SDRAM_nRAS(SDRAM_nRAS),
         .SDRAM_nCAS(SDRAM_nCAS),
         .SDRAM_CLK(SDRAM_CLK),
-//        .SDRAM_CKE(SDRAM_CKE),
+        .SDRAM_CKE(SDRAM_CKE),
 
 `ifdef NSX_ENABLE_2ND_SDRAM
         .SDRAM2_DQ(SDRAM2_DQ),
@@ -1635,7 +1635,7 @@ wire BTN_RESET = 1'b1, BTN_OSD = 1'b1, BTN_USER = 1'b1;
 `ifdef NSX_ENABLE_2ND_SDRAM
         .SD_CD(mcp_sdcd),
 `else
-//        .SD_CD(mcp_sdcd & (SW[0] ? VGA_HS : (SW[3] | SDCD_SPDIF))),
+        .SD_CD(mcp_sdcd & (SW[0] ? VGA_HS : (SW[3] | SDCD_SPDIF))),
 `endif
 
         .UART_CTS(uart_rts),

@@ -1,3 +1,10 @@
+-=(GameAndWatch_Senhor notes)=-
+
+Tested: Working Video 720p, 1080p & Sound.
+
+Dev notes: Added sdram_burst.sv in /rtl
+
+___
 # Game and Watch for FPGAs
 
 ![Promo Image](../assets/promo.jpg)

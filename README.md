@@ -1,3 +1,8 @@
+-=(GameAndWatch_Senhor notes)=-
+
+Tested: Working Video 720p, 1080p & Sound.
+
+___
 # Game and Watch for FPGAs
 
 ![Promo Image](../assets/promo.jpg)
